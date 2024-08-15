@@ -12,7 +12,10 @@ import time
 import psutil
 import os
 import sys
-import pyautogui
+try:
+    import pyautogui
+except ImportError:
+    print("Unable to run tab closing feature")
 
 
 st.title("Gaze-Detector")
@@ -24,7 +27,10 @@ GAZE_SUM = 0
 TOLERANCE = 30
 
 if st.button("Close Feed"):
-    pyautogui.hotkey('ctrl', 'w')
+    try:
+        pyautogui.hotkey('ctrl', 'w')
+    except:
+        pass
     pid = os.getpid()
     p = psutil.Process(pid)
     p.terminate()
