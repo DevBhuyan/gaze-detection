@@ -14,7 +14,7 @@ import os
 import sys
 try:
     import pyautogui
-except ImportError:
+except:
     print("Unable to run tab closing feature")
 
 
